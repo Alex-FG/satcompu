@@ -8484,7 +8484,7 @@ html.boxed body {
 }
 
 .text-primary {
-	color: #d86634;
+	color: #750e12;
 }
 
 /** @section Row spacing */
@@ -8687,7 +8687,7 @@ html [class*='section-'].section-bottom-0 {
 }
 
 .container-footer h4{
-	color: white;
+	color: #d86634;
 }
 
 ul.links-int li {
@@ -8708,6 +8708,7 @@ ul.links-int li {
 @media (max-width: 768px) {
 	.container-footer{
 		display: block;
+		margin: 0px 13%;
 	}
 }
 
@@ -8971,7 +8972,7 @@ a[href*='tel'], a[href*='mailto'] {
 }
 
 .box-default-link:hover {
-	color: rgb(13, 235, 235);
+	color:#d86634;
 }
 
 * + .box-default {
@@ -10927,12 +10928,12 @@ html.tablet .ui-to-top {
 	padding: 15px 30px;
 	font-size: 1rem;
 	line-height: 1.2;
-	color: #d86634;
+	color: #750e12;
 }
 
 .rd-navbar-static .rd-dropdown-link:hover {
 	color: #e9e9f3;
-	background-color:#d86634;
+	background-color:#750e12;
 }
 
 .rd-navbar-static .rd-megamenu-list li > a {
@@ -12015,7 +12016,7 @@ html.rd-navbar-fixed-linked .page {
 	
 }
 
-/*color barra de navegacion principal*/
+/*color barra de navegacion principal menu-principal*/
 .rd-navbar-classic.rd-navbar-static .rd-navbar-main-outer {
 	background: #750e12;
 }
@@ -12228,20 +12229,24 @@ html.rd-navbar-fixed-linked .page {
 	top: 50%;
 	transform: translateY(-50%);
 	display: none;
-	font-size: 36px;
+	font-size: 38px;
 	line-height: 1;
-	color: #d86634;
-	text-align: center;
+	color: #750e12;
+	text-align:center;
 	cursor: pointer;
 	transition: .2s ease-in;
 	will-change: transform;
 	z-index: 10;
+	border-radius: 50%;
+	width: 41px;
+	height: 41px;
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-	color: #888888;
-}
+	color: #d86634;
+	background: #750e1162;
+	}
 
 @media (min-width: 768px) {
 	.swiper-button-prev,
@@ -12313,7 +12318,7 @@ html.rd-navbar-fixed-linked .page {
 	height: 10px;
 	display: inline-block;
 	border-radius: 100%;
-	background: #d86634;
+	background: #750e12;
 	transition: .2s;
 }
 
@@ -12433,7 +12438,7 @@ html.rd-navbar-fixed-linked .page {
 
 .box-icon-1 {
 	padding: 25px 15px;
-	color: #d86634;
+	color: #750e12;
 	text-align: center;
 	transition: .25s;
 }
@@ -12461,7 +12466,7 @@ html.rd-navbar-fixed-linked .page {
 @media (max-width: 767.98px) {
 	.box-icon-1:nth-child(even) {
 		color: #ffffff;
-		background: #d86634;
+		background: #750e12;
 	}
 	.box-icon-1:nth-child(even) .text {
 		color: inherit;
@@ -12470,13 +12475,13 @@ html.rd-navbar-fixed-linked .page {
 
 @media (min-width: 768px) {
 	.box-icon-1 {
-		color: #d86634;
+		color: #750e12;
 		background: #ffffff;
 		
 	}
 	.box-icon-1:hover {
 		color: #ffffff;
-		background: #d86634;
+		background: #750e12;
 		background-image: url('../images/big-data.jpg');
 		
 	}
