@@ -11540,9 +11540,10 @@ html.tablet .ui-to-top {
 	box-shadow: 0 0 22px -4px rgba(0, 0, 0, 0.17);
 }
 
+/*color menu tamaño movil*/
 .rd-navbar-fixed .rd-nav-item:hover .rd-nav-link, .rd-navbar-fixed .rd-nav-item.focus .rd-nav-link, .rd-navbar-fixed .rd-nav-item.active .rd-nav-link, .rd-navbar-fixed .rd-nav-item.opened .rd-nav-link {
 	color: #ffffff;
-	background: #d86634;
+	background: #750e12;
 }
 
 .rd-navbar-fixed .rd-nav-item:hover > .rd-navbar-submenu-toggle, .rd-navbar-fixed .rd-nav-item.focus > .rd-navbar-submenu-toggle, .rd-navbar-fixed .rd-nav-item.active > .rd-navbar-submenu-toggle, .rd-navbar-fixed .rd-nav-item.opened > .rd-navbar-submenu-toggle {
@@ -11550,7 +11551,7 @@ html.tablet .ui-to-top {
 }
 
 .rd-navbar-fixed .rd-nav-link {
-	color: #888888;
+	color: #750e12;
 }
 
 .rd-navbar-fixed .rd-megamenu-list > li > a,
