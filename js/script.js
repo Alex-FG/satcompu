@@ -67,7 +67,7 @@
 		if (plugins.preloader.length && !isNoviBuilder) {
 			pageTransition({
 				target: document.querySelector( '.page' ),
-				delay: 0,
+				delay: 10,
 				duration: 500,
 				classIn: 'fadeIn',
 				classOut: 'fadeOut',
