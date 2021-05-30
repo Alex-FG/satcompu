@@ -594,7 +594,14 @@
 		if (isDesktop && !isNoviBuilder) {
 			$().UItoTop({
 				easingType: 'easeOutQuad',
-				containerClass: 'ui-to-top fa fa-angle-up'
+				containerClass: 'ui-to-top fa fa-angle-up '
+			});
+		}
+
+		if (isDesktop || isMobile || !isNoviBuilder) {
+			$().UItoTop2({
+				easingType: 'easeOutQuad',
+				containerClass: 'ui-to-top2  fa-whatsapp'
 			});
 		}
 

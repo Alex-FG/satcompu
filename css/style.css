@@ -10510,9 +10510,9 @@ html:not(.lt-ie10) .not-animated {
 
 /** @section ToTop */
 .ui-to-top {
-	position: fixed;
-	right: 15px;
-	bottom: 15px;
+	position:fixed;
+	right: 65px;
+	bottom: 65px;
 	z-index: 100;
 	width: 40px;
 	height: 40px;
@@ -10525,6 +10525,7 @@ html:not(.lt-ie10) .not-animated {
 	text-decoration: none;
 	transition: .45s all ease-in-out;
 	transform: translate3d(0, 100px, 0);
+	
 }
 
 .ui-to-top:hover {
@@ -10548,10 +10549,39 @@ html.tablet .ui-to-top {
 
 @media (min-width: 576px) {
 	.ui-to-top {
-		right: 40px;
-		bottom: 40px;
+		right: 60px;
+		bottom:60px;
 	}
 }
+
+
+.ui-to-top2{
+	position: fixed;
+	right: 10px;
+	bottom: 110px;
+	z-index: 100;
+	width: 50px;
+	height: 50px;
+	font-size: 33px;
+	line-height: 45px;
+	color: #ffffff;
+	background: #25d366;
+	overflow: hidden;
+	text-align: center;
+	text-decoration: none;
+	transition: .45s all ease-in-out;
+	transform: translate3d(0, 100px, 0);
+	border-radius: 50%;
+}
+
+.ui-to-top2:hover {
+	color: #ffffff;
+	background: #05554c;
+	text-decoration: none;
+}
+
+
+
 
 /** @section RD Navbar */
 @keyframes rd-navbar-slide-down {
