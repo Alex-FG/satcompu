@@ -8484,7 +8484,11 @@ html.boxed body {
 }
 
 .text-primary {
-	color: #750e12;
+	color: #ffffff;
+	font-size: 45px;
+	text-align: center;
+	
+	
 }
 
 /** @section Row spacing */
@@ -8676,7 +8680,7 @@ html [class*='section-'].section-bottom-0 {
 	
 	display:flex;
     margin:auto;
-	width: 180px;
+	width: 340px;
 	height: 100px;
 }
 
@@ -11198,8 +11202,8 @@ html.tablet .ui-to-top {
 }
 /*logo imagen cabecera encabezado*/
 .rd-navbar-brand img {
-	width: 200px;
-	height: 120px;
+	width: 400px;
+	height: 100px;
 }
 
 .rd-navbar-fixed .rd-navbar-brand img {
@@ -12136,7 +12140,7 @@ html.rd-navbar-fixed-linked .page {
 }
 
 .swiper-container-no-flexbox .swiper-slide {
-	float: left;
+	float: right;
 }
 
 .swiper-container-vertical > .swiper-wrapper {
