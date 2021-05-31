@@ -8487,6 +8487,8 @@ html.boxed body {
 	color: #ffffff;
 	font-size: 45px;
 	text-align: center;
+	background: rgba(0, 0, 0, 0.274);
+	border-radius: 10px;
 	
 	
 }
@@ -8680,8 +8682,8 @@ html [class*='section-'].section-bottom-0 {
 	
 	display:flex;
     margin:auto;
-	width: 340px;
-	height: 100px;
+	width: 345px;
+	height: 90px;
 }
 
 .container-footer p{
@@ -8715,6 +8717,16 @@ padding:0px 25px;
 		margin: 0px 27px;
 	}
 }
+
+@media (max-width: 768px) {
+	.container-footer img{	
+		display:flex;
+		margin:auto;
+		width: 300px;
+		height: 70px;
+	}
+}
+
 
 
 
@@ -10567,7 +10579,7 @@ html.tablet .ui-to-top {
 	width: 50px;
 	height: 50px;
 	font-size: 33px;
-	line-height: 45px;
+	line-height: 50px;
 	color: #ffffff;
 	background: #25d366;
 	overflow: hidden;
@@ -11200,7 +11212,7 @@ html.tablet .ui-to-top {
 	font-size: 22px;
 	line-height: 46px;
 }
-/*logo imagen cabecera encabezado*/
+/*logo principal imagen cabecera encabezado*/
 .rd-navbar-brand img {
 	width: 400px;
 	height: 100px;
@@ -12453,8 +12465,9 @@ html.rd-navbar-fixed-linked .page {
 /*cabecera barra*/
 .barra{
 	background: white;
-	
+
 }
+
 
 /*box icon*/
 .box-icon-1-wrap {
@@ -12555,8 +12568,13 @@ html.rd-navbar-fixed-linked .page {
 .parallax-container {
 	position: relative;
 	overflow: hidden;
-	
+	height: 150px;	
+}
 
+@media (max-width: 576px) {
+	.parallax-container {
+		height: 120px;	
+	}
 }
 
 .material-parallax {
@@ -12571,6 +12589,8 @@ html.rd-navbar-fixed-linked .page {
 .parallax-content {
 	position: relative;
 	z-index: 1;
+	margin: -10px;
+	
 }
 
 .material-parallax img {
@@ -12584,6 +12604,19 @@ html.rd-navbar-fixed-linked .page {
 	transform: translate3d(-50%, 0, 0);
 }
 
+.texto-banner{
+ color:#fff;
+ font-family: sans-serif;
+ font-weight: bold;
+ font-size:45px;
+}
+
+@media (max-width: 576px) {
+	.texto-banner{
+		font-size:30px;	}
+}
+
+
 .parallax-disabled {
 	background-size: cover;
 	background-position: center;
@@ -12591,7 +12624,6 @@ html.rd-navbar-fixed-linked .page {
 
 html:not(.ie-11):not(.ios) .parallax-disabled {
 	background-attachment: fixed;
-
     }
 
 
@@ -12608,6 +12640,8 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
 	height: 300px;
 	width: 100%;
 }
+
+
 
 @media (min-width: 576px) {
 	.google-map {
