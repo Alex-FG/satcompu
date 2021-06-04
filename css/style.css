@@ -8487,7 +8487,7 @@ html.boxed body {
 	color: #ffffff;
 	font-size: 45px;
 	text-align: center;
-	background: rgba(0, 0, 0, 0.274);
+	background: rgba(0, 0, 0, 0.178);
 	border-radius: 10px;
 	
 	
@@ -12456,7 +12456,7 @@ html.rd-navbar-fixed-linked .page {
 	}
 }
 
-/**Nuevos estilos*/
+/**NUEVOS ESTILOS*/
 
 .planes{
 	
@@ -12466,6 +12466,11 @@ html.rd-navbar-fixed-linked .page {
 .barra{
 	background: white;
 
+}
+
+.planes a{
+	
+	
 }
 
 
@@ -12626,6 +12631,275 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
 	background-attachment: fixed;
     }
 
+	/** MISION VISION POLITICAS **/
+
+	.wrap{
+		display: flex;
+		padding: 30px 150px 0px;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: -50px;
+	}
+	
+	ul.tabs{
+		padding:0;
+		width: 130px;
+		background: #750e12;
+		list-style: none;
+		display: block;
+		height: 100%;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	ul.tabs li{
+		width: 130px;
+	}
+	
+	ul.tabs li a{
+		color: #fff;
+		text-decoration: none;
+		font-size: 16px;
+		text-align: center;	
+		display: block;
+		padding: 8px 0px;
+	}
+	
+	.actual{
+		background: #d86634;
+	}
+	
+	ul.tabs li a .tab-text{
+		margin-left: 8px;
+	}
+	
+	.secciones{
+		width: 100%;
+		background: #fff;
+	}
+	
+	.secciones article{
+		padding: 30px;
+	}
+	
+	.secciones article p{
+		text-align: justify;
+	}
+	
+	
+	@media screen and (max-width: 700px){
+		ul.tabs li{
+			width: none;
+			flex-basis: 0;
+			flex-grow: 1;
+		}
+
+		.wrap{
+			width: 100%;
+			max-width: 100%;		
+			display:block;
+			padding: 0px 10px;
+		}
+		
+		ul.tabs{			
+			
+			list-style: none;
+			display: flex;
+		}
+	}
+	
+	@media screen and (max-width: 450px){
+		ul.tabs li a{
+			padding: 8px 0px;
+		}
+	
+		ul.tabs li a .tab-text{
+			display: none;
+		}
+	
+		.secciones article{
+			padding: 20px;
+		}
+	}
+
+/**carrusel*/
+
+/*
+*
+* Boiler Plate stuff 
+*
+*********************************/
+:root {
+	--movie-width: 17.5vw;
+	--movie-height: 180px;
+	--arrow-width: 50px;
+
+  }
+  @media only screen and (max-width: 700px) {
+	:root {
+	  --movie-width: 90vw;
+	  --movie-height: 200px;
+	  --arrow-width: 0px;
+	 
+	}
+  }
+  
+  
+  
+  .container-car {
+	position: relative;
+  
+  }
+  
+  
+  ::-webkit-scrollbar {
+	display: none;
+  }
+  
+  /*
+  *
+  * THE SLIDER CONTAINER
+  *
+  *********************************/
+  .sliderc {
+	width: 100%;
+	overflow-x: scroll;
+	overflow-y: visible;
+	white-space: nowrap;
+	position: relative;
+	padding-top: var(--slider-py);
+	padding-bottom: var(--slider-py);
+  }
+  
+  /*
+  *
+  * SLIDER INDICATORS
+  *
+  *********************************/
+  .container-indicators {
+	width: 100px;
+	position: absolute;
+	right: 0;
+	top: calc(var(--slider-py) - 60px);
+	visibility: hidden;
+  }
+  .indicator {
+	width: 15px;
+	height: 2px;
+	background-color: grey;
+	display: inline-block;
+  }
+  .indicator.active {
+	background-color: white;
+  }
+  
+  /*
+  *
+  * MOVIE ELEMENTS!
+  *
+  *********************************/
+  .movie {
+	width: var(--movie-width);
+	height: var(--movie-height);
+	display: inline-block;
+	position: relative;
+	color: white;
+	padding: 0 2px;
+	font-size: 0.8rem;
+	transition: all 0.5s ease-in-out;
+   
+	padding: 0px 17px;
+  }
+  
+  .movie:nth-of-type(1) {
+	margin-left: var(--arrow-width);
+  }
+  
+  .movie img {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+	border-radius: 10px;
+  }
+  
+  .description {
+	position: absolute;
+	display: none;
+	z-index: 9999;
+	background-color: #272727;
+	width: var(--movie-width);
+	margin-top: -10px;
+	padding: 10px 0;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+  }
+  
+  @media only screen and (min-width: 900px) {
+	.movie:hover {
+	  transform: scale(1.1);
+	  z-index: 2;
+	}
+	/* Make description visible when movie is hovered */
+	.movie:hover > .description {
+	  display: block;
+	}
+	.movie:hover > img {
+	  border-bottom-left-radius: 0;
+	  border-bottom-right-radius: 0;
+	}
+  }
+  
+  
+  
+  
+  /*
+  *
+  * BUTTONS
+  *
+  *********************************/
+  .btn-nav {
+	width: var(--arrow-width);
+	height: var(--movie-height);
+	border-radius: 5px;
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	outline: none;
+	border: none;
+	color: white;
+	top: var(--slider-py);
+	z-index: 5;
+	visibility: hidden;
+  }
+  
+  #moveLeft {
+	left: 0;
+  
+  }
+  
+  #moveRight {
+	right: 0;
+	
+  }
+  
+  @media only screen and (max-width: 900px) {
+	.btn-nav {
+	  display: none;
+	}
+  }
+  
+  @media only screen and (min-width: 901px) {
+	.container-car:hover .btn-nav,
+	.container-car:hover .container-indicators {
+	  visibility: visible;
+	}
+  }
+  
+  
+
+
+	
+	/*fin nuevos estilos*/
 
 /** @section Google Map */
 .google-map-markers {
