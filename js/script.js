@@ -907,6 +907,7 @@
 	});
 }());
 
+
 /**nuevos scripts */
 /**funcionalidad botones de mision vision y politicas */
 $(document).ready(function(){
@@ -925,21 +926,18 @@ $(document).ready(function(){
 	});
 });
 
+
+
+
+/**CARRUSEL IMAGENES PARTNERS */
 const slider = document.querySelector(".sliderc");
 const btnLeft = document.getElementById("moveLeft");
 const btnRight = document.getElementById("moveRight");
 const indicators = document.querySelectorAll(".indicator");
 
-
 let baseSliderWidth = slider.offsetWidth;
 let activeIndex = 0; // the current page on the slider
 
-/** <img src="images/partners/beaucoup.jpg" alt="">
-      <img src="" alt="">
-      <img src="" alt="">
-      <img src="" alt="">
-      <img src="" alt="">
-      <img src="" alt=""> */
 
 let movies = [
   {
@@ -968,7 +966,6 @@ let movies = [
     src: "images/partners/siemon.png",
       href:"#",
   },
-  
     
 ];
 
@@ -985,29 +982,13 @@ function populateSlider() {
     let img = clone.querySelector("img");
     let a = clone.querySelector("a");
     img.src = image.src;
-    a.href = image.href;
-
-   
+    a.href = image.href;   
     slider.insertBefore(clone, slider.childNodes[slider.childNodes.length - 1]);
   });
 }
 
-/*
-function populatelink() {
- movies.forEach((link) => {
-  const newlink = document.getElementById("movie0");
-  let clone = newlink.cloneNode(true);
-  let a = clone.querySelector("a");
-  a.href = link.href;
-});
-}*/
-
-
-
 populateSlider();
 populateSlider();
-
-
 
 // delete the initial movie in the html
 const initialMovie = document.getElementById("movie0");
@@ -1043,9 +1024,6 @@ function Derecha(){
     .width;
   let scrollDistance = movieWidth * 1; // Scroll the length of 6 movies. TODO: make work for mobile because (4 movies/page instead of 6)
 
-  console.log(`movieWidth = ${movieWidth}`);
-  console.log(`scrolling right ${scrollDistance}`);
-
   // if we're on the last page
   if (activeIndex == 2) {
     // duplicate all the items in the slider (this is how we make 'looping' slider)
@@ -1080,10 +1058,7 @@ setInterval(function(){
   Derecha();
 },5000);
 
-// slider.addEventListener("scroll", (e) => {
-//   console.log(slider.scrollLeft);
-//   console.log(slider.offsetWidth);
-// });*/
+
 
 
 

@@ -12761,7 +12761,7 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
   * THE SLIDER CONTAINER
   *
   *********************************/
-  .sliderc {
+  .sliderc, .sliderc-nac {
 	width: 100%;
 	overflow-x: scroll;
 	overflow-y: visible;
@@ -12798,7 +12798,7 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
   * MOVIE ELEMENTS!
   *
   *********************************/
-  .movie {
+  .movie, .canal {
 	width: var(--movie-width);
 	height: var(--movie-height);
 	display: inline-block;
@@ -12815,35 +12815,23 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
 	margin-left: var(--arrow-width);
   }
   
-  .movie img {
+  .movie img, .canal img {
 	object-fit: cover;
 	height: 100%;
 	width: 100%;
 	border-radius: 10px;
   }
   
-  .description {
-	position: absolute;
-	display: none;
-	z-index: 9999;
-	background-color: #272727;
-	width: var(--movie-width);
-	margin-top: -10px;
-	padding: 10px 0;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-  }
+  
   
   @media only screen and (min-width: 900px) {
-	.movie:hover {
+	.movie:hover, .canal:hover {
 	  transform: scale(1.1);
 	  z-index: 2;
 	}
 	/* Make description visible when movie is hovered */
-	.movie:hover > .description {
-	  display: block;
-	}
-	.movie:hover > img {
+	
+	.movie:hover > img, .canal:hover>img {
 	  border-bottom-left-radius: 0;
 	  border-bottom-right-radius: 0;
 	}
@@ -12894,8 +12882,217 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
 	  visibility: visible;
 	}
   }
+
+
+  /*imagenes marcas carrusel*/
+  @keyframes scroll {
+	0% {
+		transform: translateX(0);		
+	}
+
+	100% {
+		transform: translateX(calc(-100px * 7));	
+	}
+}
+
+.carusel {
+	background: rgb(255, 255, 255);
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+	height: 220px;
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	transition: trasnsform .5s;
+}
+
+.carusel::before, .carusel::after {
+	
+	content: "";
+	height: 100px;
+	position: absolute;
+	width: 200px;
+	z-index: 2;
+
+}
+
+.carusel::after {
+	right: 0;
+	top: 0;
+	transform: rotateZ(180deg);
+	
+}
+
+.carusel::before {
+	left: 0;
+	top: 0;
+
+}
+
+.carusel .slidec-track {
+	margin: 0px 0px;
+	animation: scroll 20s linear infinite;
+	display: flex;
+	width: calc(250px * 8);	
+}
+
+
+.carusel .slidec-track img {
+	padding: 0px 10px;
+	height: 150px;
+	width: 300px;
+
+
+}
+
+.carusel .slidec {
+	height: 102px;
+	width: 500px;
+	
+	
+}
   
+  /*ESTILOS IPTV*/
+
+  .iptv{
+	  display: flex;
+
+  } 
+
+
+  .iptv-parrafo{
+	  width: 50%;
+	  margin: 0px 20px;
+  }
+
+  .iptv-img{
+	width: 50%;
+	margin: 0px 20px;
+	
+  }
+
+  @media (max-width: 576px) {
+	.iptv{
+		display: block;
+		}
+
+		.iptv-parrafo{
+			width: 100%;
+			margin: 0;
+		}
+	  
+		.iptv-img{
+		  width: 100%;
+		  
+		 margin: 20px 0;
+	
+		}
+}
+
+
+
+/*estidos medidor*/
+
+.cont-medidor{
+	display: flex;
+justify-content: center;
+	
+}
+
+.medidor{
+	width: 100%;
+}
   
+
+/**GALERIA IMAGENES*/
+
+.capacidad{
+	display: flex;
+	justify-content: center;
+}
+
+.imge{
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    transition: transform .5s;
+}
+
+.imge:hover{
+    transform: scale(1.2);
+}
+
+.container-img{
+   position: fixed; 
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   transform: translateX(-200%);
+   background:rgba(0, 0, 0, 0.74);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transition: transform .4s ease-in;
+   z-index: 1;
+   
+}
+
+.move{
+    transform: translateX(0);
+}
+
+.img-show{
+	width: 80%;
+    height: 80%;
+    display: block;
+    object-fit: cover;
+    transform: scale(0);
+    transition: transform .2s .4s;
+}
+
+.show{
+    transform: scale(1);
+}
+
+.copy{
+    position: fixed;
+    color: white;
+    bottom: 35px;
+}
+
+.cerrar2{
+    position: absolute;
+    color: white;
+    top:20px;
+    right: 20px;
+    font-size: 40px;
+    cursor: pointer;
+    font-family: sans-serif;
+
+}
+
+@media screen and (max-width:700px) {
+    .img-show{
+        width: 90%;
+    }
+
+    .copy{
+        bottom: 20px;
+    }
+
+    .cerrar2{
+       
+        top:10px;
+        right: 10px;
+        font-size: 20px; 
+    }
+
+	.imge{
+		width: 100%;
+	}
+}
+
 
 
 	
