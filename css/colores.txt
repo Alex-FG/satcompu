@@ -1,6 +1,8 @@
 barra y footer 2 101319
 color barra de navegacion y footer 1F2632
 
+color footer nuevo 370609
+
 color barra nuevo 750e12  vino
 
 color interno original 62bfe6

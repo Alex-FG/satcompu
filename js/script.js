@@ -1053,10 +1053,10 @@ btnRight.addEventListener("click", (e) => {
 });
 
 
-//funcion para ejecutar auntomaticamente la funcion Derecha cada 5 seg
+//funcion para ejecutar auntomaticamente la funcion Derecha cada 4 seg
 setInterval(function(){
   Derecha();
-},5000);
+},4000);
 
 
 

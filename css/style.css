@@ -8675,7 +8675,8 @@ html [class*='section-'].section-bottom-0 {
 .container-footer{
 	display: flex;
 	text-align: left;
-	margin: 0px 25%;
+	background: #370609;
+	padding: 8px 25%;
 }
 
 .container-footer img{
@@ -8696,14 +8697,18 @@ html [class*='section-'].section-bottom-0 {
 	color: #d86634;
 }
 
-ul.links-int li {
+
+.links-int li {
 	display: list-item;
 	list-style:square;	
 	color: #d86634;
+	font-size: 15px;
 }
 
 .container-footer-info{
 	padding: 0px 15px;
+	text-align: justify;
+	
 }
 
 .logo-footer{
@@ -8711,20 +8716,31 @@ padding:0px 25px;
 	
 }
 
-@media (max-width: 768px) {
-	.container-footer{
-		display: block;
-		margin: 0px 27px;
-	}
+.container-footer-links{
+	padding: 0px 15px;
+	
 }
+
+
 
 @media (max-width: 768px) {
 	.container-footer img{	
 		display:flex;
 		margin:auto;
-		width: 300px;
+		width: 280px;
 		height: 70px;
 	}
+
+	.container-footer{
+		display: block;
+		padding: 5px 10px;
+	}
+
+	.container-footer-links{
+		padding: 0px 50px;
+		
+	}
+	
 }
 
 
@@ -9153,7 +9169,7 @@ a[href*='tel'], a[href*='mailto'] {
 }
 
 .info-classic-2 .info-classic-link {
-	font-size: 1.5rem;
+	font-size: 1rem;
 }
 
 .info-classic-icon {
@@ -9161,8 +9177,8 @@ a[href*='tel'], a[href*='mailto'] {
 	align-items: center;
 	justify-content: center;
 	flex-shrink: 0;
-	width: 37px;
-	height: 37px;
+	width: 30px;
+	height: 30px;
 	font-size: 30px;
 	line-height: 1;
 	color: #d86634;
@@ -9171,7 +9187,7 @@ a[href*='tel'], a[href*='mailto'] {
 
 .info-classic-link {
 	display: inline-block;
-	font-size: 1rem;
+	font-size: .9rem;
 }
 
 .info-classic-link, .info-classic-link:focus, .info-classic-link:active {
