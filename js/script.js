@@ -19,19 +19,19 @@
 		livedemo = true,
 
 		plugins = {
-			bootstrapTooltip:        $( '[data-toggle="tooltip"]' ),
-			copyrightYear:           $( '.copyright-year' ),
-			owl:                     $( '.owl-carousel' ),
-			preloader:               $( '.preloader' ),
-			rdNavbar:                $( '.rd-navbar' ),
-			rdMailForm:              $( '.rd-mailform' ),
-			rdInputLabel:            $( '.form-label' ),
-			regula:                  $( '[data-constraints]' ),
-			swiper:                  $( '.swiper-container' ),
-			viewAnimate:             $( '.view-animate' ),
-			wow:                     $( '.wow' ),
-			maps:                    $( '.google-map-container' ),
-			materialParallax:        $( '.parallax-container' ),
+			bootstrapTooltip: $('[data-toggle="tooltip"]'),
+			copyrightYear: $('.copyright-year'),
+			owl: $('.owl-carousel'),
+			preloader: $('.preloader'),
+			rdNavbar: $('.rd-navbar'),
+			rdMailForm: $('.rd-mailform'),
+			rdInputLabel: $('.form-label'),
+			regula: $('[data-constraints]'),
+			swiper: $('.swiper-container'),
+			viewAnimate: $('.view-animate'),
+			wow: $('.wow'),
+			maps: $('.google-map-container'),
+			materialParallax: $('.parallax-container'),
 		};
 
 	/**
@@ -39,8 +39,8 @@
 	 * @param {object} elem - jQuery object
 	 * @return {boolean}
 	 */
-	function isScrolledIntoView ( elem ) {
-		if ( isNoviBuilder ) return true;
+	function isScrolledIntoView(elem) {
+		if (isNoviBuilder) return true;
 		return elem.offset().top + elem.outerHeight() >= $window.scrollTop() && elem.offset().top <= $window.scrollTop() + $window.height();
 	}
 
@@ -49,24 +49,25 @@
 	 * @param {object} element - jQuery object
 	 * @param {function} func - init function
 	 */
-	function lazyInit( element, func ) {
+	function lazyInit(element, func) {
 		var scrollHandler = function () {
-			if ( ( !element.hasClass( 'lazy-loaded' ) && ( isScrolledIntoView( element ) ) ) ) {
+			if ((!element.hasClass('lazy-loaded') && (isScrolledIntoView(element)))) {
 				func.call();
-				element.addClass( 'lazy-loaded' );
+				element.addClass('lazy-loaded');
 			}
 		};
 
 		scrollHandler();
-		$window.on( 'scroll', scrollHandler );
+		$window.on('scroll', scrollHandler);
 	}
 
+	/**carga de la pagina loader preloader */
 	// Initialize scripts that require a loaded window
 	$window.on('load', function () {
 		// Page loader & Page transition
 		if (plugins.preloader.length && !isNoviBuilder) {
 			pageTransition({
-				target: document.querySelector( '.page' ),
+				target: document.querySelector('.page'),
 				delay: 10,
 				duration: 500,
 				classIn: 'fadeIn',
@@ -75,10 +76,10 @@
 				conditions: function (event, link) {
 					return link && !/(\#|javascript:void\(0\)|callto:|tel:|mailto:|:\/\/)/.test(link) && !event.currentTarget.hasAttribute('data-lightgallery');
 				},
-				onTransitionStart: function ( options ) {
-					setTimeout( function () {
+				onTransitionStart: function (options) {
+					setTimeout(function () {
 						plugins.preloader.removeClass('loaded');
-					}, options.duration * .75 );
+					}, options.duration * .75);
 				},
 				onReady: function () {
 					plugins.preloader.addClass('loaded');
@@ -87,15 +88,15 @@
 			});
 		}
 
-		if ( plugins.materialParallax.length ) {
-			if ( !isNoviBuilder && !isIE && !isMobile) {
+		if (plugins.materialParallax.length) {
+			if (!isNoviBuilder && !isIE && !isMobile) {
 				plugins.materialParallax.parallax();
 			} else {
-				for ( var i = 0; i < plugins.materialParallax.length; i++ ) {
+				for (var i = 0; i < plugins.materialParallax.length; i++) {
 					var $parallax = $(plugins.materialParallax[i]);
 
-					$parallax.addClass( 'parallax-disabled' );
-					$parallax.css({ "background-image": 'url('+ $parallax.data("parallax-img") +')' });
+					$parallax.addClass('parallax-disabled');
+					$parallax.css({ "background-image": 'url(' + $parallax.data("parallax-img") + ')' });
 				}
 			}
 		}
@@ -179,73 +180,73 @@
 		 * @desc Initialize owl carousel plugin
 		 * @param {object} carousel - carousel jQuery object
 		 */
-		function initOwlCarousel ( carousel ) {
+		function initOwlCarousel(carousel) {
 			var
-				aliaces = [ '-', '-sm-', '-md-', '-lg-', '-xl-', '-xxl-' ],
-				values = [ 0, 576, 768, 992, 1200, 1600 ],
+				aliaces = ['-', '-sm-', '-md-', '-lg-', '-xl-', '-xxl-'],
+				values = [0, 576, 768, 992, 1200, 1600],
 				responsive = {};
 
-			for ( var j = 0; j < values.length; j++ ) {
-				responsive[ values[ j ] ] = {};
-				for ( var k = j; k >= -1; k-- ) {
-					if ( !responsive[ values[ j ] ][ 'items' ] && carousel.attr( 'data' + aliaces[ k ] + 'items' ) ) {
-						responsive[ values[ j ] ][ 'items' ] = k < 0 ? 1 : parseInt( carousel.attr( 'data' + aliaces[ k ] + 'items' ), 10 );
+			for (var j = 0; j < values.length; j++) {
+				responsive[values[j]] = {};
+				for (var k = j; k >= -1; k--) {
+					if (!responsive[values[j]]['items'] && carousel.attr('data' + aliaces[k] + 'items')) {
+						responsive[values[j]]['items'] = k < 0 ? 1 : parseInt(carousel.attr('data' + aliaces[k] + 'items'), 10);
 					}
-					if ( !responsive[ values[ j ] ][ 'stagePadding' ] && responsive[ values[ j ] ][ 'stagePadding' ] !== 0 && carousel.attr( 'data' + aliaces[ k ] + 'stage-padding' ) ) {
-						responsive[ values[ j ] ][ 'stagePadding' ] = k < 0 ? 0 : parseInt( carousel.attr( 'data' + aliaces[ k ] + 'stage-padding' ), 10 );
+					if (!responsive[values[j]]['stagePadding'] && responsive[values[j]]['stagePadding'] !== 0 && carousel.attr('data' + aliaces[k] + 'stage-padding')) {
+						responsive[values[j]]['stagePadding'] = k < 0 ? 0 : parseInt(carousel.attr('data' + aliaces[k] + 'stage-padding'), 10);
 					}
-					if ( !responsive[ values[ j ] ][ 'margin' ] && responsive[ values[ j ] ][ 'margin' ] !== 0 && carousel.attr( 'data' + aliaces[ k ] + 'margin' ) ) {
-						responsive[ values[ j ] ][ 'margin' ] = k < 0 ? 30 : parseInt( carousel.attr( 'data' + aliaces[ k ] + 'margin' ), 10 );
+					if (!responsive[values[j]]['margin'] && responsive[values[j]]['margin'] !== 0 && carousel.attr('data' + aliaces[k] + 'margin')) {
+						responsive[values[j]]['margin'] = k < 0 ? 30 : parseInt(carousel.attr('data' + aliaces[k] + 'margin'), 10);
 					}
 				}
 			}
 
 			// Enable custom pagination
-			if ( carousel.attr( 'data-dots-custom' ) ) {
-				carousel.on( 'initialized.owl.carousel', function ( event ) {
+			if (carousel.attr('data-dots-custom')) {
+				carousel.on('initialized.owl.carousel', function (event) {
 					var
-						carousel = $( event.currentTarget ),
-						customPag = $( carousel.attr( 'data-dots-custom' ) ),
+						carousel = $(event.currentTarget),
+						customPag = $(carousel.attr('data-dots-custom')),
 						active = 0;
 
-					if ( carousel.attr( 'data-active' ) ) {
-						active = parseInt( carousel.attr( 'data-active' ), 10 );
+					if (carousel.attr('data-active')) {
+						active = parseInt(carousel.attr('data-active'), 10);
 					}
 
-					carousel.trigger( 'to.owl.carousel', [ active, 300, true ] );
-					customPag.find( '[data-owl-item="' + active + '"]' ).addClass( 'active' );
+					carousel.trigger('to.owl.carousel', [active, 300, true]);
+					customPag.find('[data-owl-item="' + active + '"]').addClass('active');
 
-					customPag.find( '[data-owl-item]' ).on( 'click', function ( event ) {
+					customPag.find('[data-owl-item]').on('click', function (event) {
 						event.preventDefault();
-						carousel.trigger( 'to.owl.carousel', [ parseInt( this.getAttribute( 'data-owl-item' ), 10 ), 300, true ] );
-					} );
+						carousel.trigger('to.owl.carousel', [parseInt(this.getAttribute('data-owl-item'), 10), 300, true]);
+					});
 
-					carousel.on( 'translate.owl.carousel', function ( event ) {
-						customPag.find( '.active' ).removeClass( 'active' );
-						customPag.find( '[data-owl-item="' + event.item.index + '"]' ).addClass( 'active' )
-					} );
-				} );
+					carousel.on('translate.owl.carousel', function (event) {
+						customPag.find('.active').removeClass('active');
+						customPag.find('[data-owl-item="' + event.item.index + '"]').addClass('active')
+					});
+				});
 			}
 
-			carousel.owlCarousel( {
-				autoplay:           isNoviBuilder ? false : carousel.attr( 'data-autoplay' ) !== 'false',
-				autoplayTimeout:    carousel.attr( "data-autoplay" ) ? Number( carousel.attr( "data-autoplay" ) ) : 3000,
+			carousel.owlCarousel({
+				autoplay: isNoviBuilder ? false : carousel.attr('data-autoplay') !== 'false',
+				autoplayTimeout: carousel.attr("data-autoplay") ? Number(carousel.attr("data-autoplay")) : 3000,
 				autoplayHoverPause: true,
-				loop:               isNoviBuilder ? false : carousel.attr( 'data-loop' ) !== 'false',
-				items:              1,
-				center:             carousel.attr( 'data-center' ) === 'true',
-				dotsContainer:      carousel.attr( 'data-pagination-class' ) || false,
-				navContainer:       carousel.attr( 'data-navigation-class' ) || false,
-				mouseDrag:          isNoviBuilder ? false : carousel.attr( 'data-mouse-drag' ) !== 'false',
-				nav:                carousel.attr( 'data-nav' ) === 'true',
-				dots:               carousel.attr( 'data-dots' ) === 'true',
-				dotsEach:           carousel.attr( 'data-dots-each' ) ? parseInt( carousel.attr( 'data-dots-each' ), 10 ) : false,
-				animateIn:          carousel.attr( 'data-animation-in' ) ? carousel.attr( 'data-animation-in' ) : false,
-				animateOut:         carousel.attr( 'data-animation-out' ) ? carousel.attr( 'data-animation-out' ) : false,
-				responsive:         responsive,
-				navText:            carousel.attr( 'data-nav-text' ) ? $.parseJSON( carousel.attr( 'data-nav-text' ) ) : [],
-				navClass:           carousel.attr( 'data-nav-class' ) ? $.parseJSON( carousel.attr( 'data-nav-class' ) ) : [ 'owl-prev', 'owl-next' ]
-			} );
+				loop: isNoviBuilder ? false : carousel.attr('data-loop') !== 'false',
+				items: 1,
+				center: carousel.attr('data-center') === 'true',
+				dotsContainer: carousel.attr('data-pagination-class') || false,
+				navContainer: carousel.attr('data-navigation-class') || false,
+				mouseDrag: isNoviBuilder ? false : carousel.attr('data-mouse-drag') !== 'false',
+				nav: carousel.attr('data-nav') === 'true',
+				dots: carousel.attr('data-dots') === 'true',
+				dotsEach: carousel.attr('data-dots-each') ? parseInt(carousel.attr('data-dots-each'), 10) : false,
+				animateIn: carousel.attr('data-animation-in') ? carousel.attr('data-animation-in') : false,
+				animateOut: carousel.attr('data-animation-out') ? carousel.attr('data-animation-out') : false,
+				responsive: responsive,
+				navText: carousel.attr('data-nav-text') ? $.parseJSON(carousel.attr('data-nav-text')) : [],
+				navClass: carousel.attr('data-nav-class') ? $.parseJSON(carousel.attr('data-nav-class')) : ['owl-prev', 'owl-next']
+			});
 		}
 
 		/**
@@ -257,9 +258,9 @@
 			regula.custom({
 				name: 'PhoneNumber',
 				defaultMessage: 'Invalid phone number format',
-				validator: function() {
-					if ( this.value === '' ) return true;
-					else return /^(\+\d)?[0-9\-\(\) ]{5,}$/i.test( this.value );
+				validator: function () {
+					if (this.value === '') return true;
+					else return /^(\+\d)?[0-9\-\(\) ]{5,}$/i.test(this.value);
 				}
 			});
 
@@ -276,7 +277,7 @@
 				if (e.type !== "blur") if (!$this.parent().hasClass("has-error")) return;
 				if ($this.parents('.rd-mailform').hasClass('success')) return;
 
-				if (( results = $this.regula('validate') ).length) {
+				if ((results = $this.regula('validate')).length) {
 					for (i = 0; i < results.length; i++) {
 						$this.siblings(".form-validation").text(results[i].message).parent().addClass("has-error");
 					}
@@ -350,9 +351,9 @@
 			for (var i = 0; i < plugins.captcha.length; i++) {
 				var
 					$captcha = $(plugins.captcha[i]),
-					resizeHandler = (function() {
+					resizeHandler = (function () {
 						var
-							frame = this.querySelector( 'iframe' ),
+							frame = this.querySelector('iframe'),
 							inner = this.firstElementChild,
 							inner2 = inner.firstElementChild,
 							containerRect = null,
@@ -365,14 +366,14 @@
 
 						containerRect = this.getBoundingClientRect();
 						frameRect = frame.getBoundingClientRect();
-						scale = containerRect.width/frameRect.width;
+						scale = containerRect.width / frameRect.width;
 
-						if ( scale < 1 ) {
-							inner2.style.transform = 'scale('+ scale +')';
-							inner.style.height = ( frameRect.height * scale ) + 'px';
-							inner.style.width = ( frameRect.width * scale ) + 'px';
+						if (scale < 1) {
+							inner2.style.transform = 'scale(' + scale + ')';
+							inner.style.height = (frameRect.height * scale) + 'px';
+							inner.style.width = (frameRect.width * scale) + 'px';
 						}
-					}).bind( plugins.captcha[i] );
+					}).bind(plugins.captcha[i]);
 
 				grecaptcha.render(
 					$captcha.attr('id'),
@@ -388,9 +389,9 @@
 
 				$captcha.after("<span class='form-validation'></span>");
 
-				if ( plugins.captcha[i].hasAttribute( 'data-auto-size' ) ) {
+				if (plugins.captcha[i].hasAttribute('data-auto-size')) {
 					resizeHandler();
-					window.addEventListener( 'resize', resizeHandler );
+					window.addEventListener('resize', resizeHandler);
 				}
 			}
 		};
@@ -403,9 +404,9 @@
 			plugins.bootstrapTooltip.tooltip('dispose');
 
 			if (window.innerWidth < 576) {
-				plugins.bootstrapTooltip.tooltip({placement: 'bottom'});
+				plugins.bootstrapTooltip.tooltip({ placement: 'bottom' });
 			} else {
-				plugins.bootstrapTooltip.tooltip({placement: tooltipPlacement});
+				plugins.bootstrapTooltip.tooltip({ placement: tooltipPlacement });
 			}
 		}
 
@@ -421,7 +422,7 @@
 					coordinates.lng
 				), marker, map)
 			} catch (e) {
-				map.geocoder.geocode({'address': str}, function (results, status) {
+				map.geocoder.geocode({ 'address': str }, function (results, status) {
 					if (status === google.maps.GeocoderStatus.OK) {
 						var latitude = results[0].geometry.location.lat();
 						var longitude = results[0].geometry.location.lng();
@@ -441,14 +442,14 @@
 		function initMaps() {
 			var key;
 
-			for ( var i = 0; i < plugins.maps.length; i++ ) {
-				if ( plugins.maps[i].hasAttribute( "data-key" ) ) {
-					key = plugins.maps[i].getAttribute( "data-key" );
+			for (var i = 0; i < plugins.maps.length; i++) {
+				if (plugins.maps[i].hasAttribute("data-key")) {
+					key = plugins.maps[i].getAttribute("data-key");
 					break;
 				}
 			}
 
-			$.getScript('//maps.google.com/maps/api/js?'+ ( key ? 'key='+ key + '&' : '' ) +'sensor=false&libraries=geometry,places&v=quarterly', function () {
+			$.getScript('//maps.google.com/maps/api/js?' + (key ? 'key=' + key + '&' : '') + 'sensor=false&libraries=geometry,places&v=quarterly', function () {
 				var head = document.getElementsByTagName('head')[0],
 					insertBefore = head.insertBefore;
 
@@ -469,7 +470,7 @@
 						zoom: zoom,
 						styles: styles,
 						scrollwheel: false,
-						center: {lat: 0, lng: 0}
+						center: { lat: 0, lng: 0 }
 					});
 
 					// Add map object to map node
@@ -486,11 +487,11 @@
 					// Add markers from google-map-markers array
 					var markerItems = plugins.maps[i].querySelectorAll(".google-map-markers li");
 
-					if (markerItems.length){
+					if (markerItems.length) {
 						var markers = [];
-						for (var j = 0; j < markerItems.length; j++){
+						for (var j = 0; j < markerItems.length; j++) {
 							var markerElement = markerItems[j];
-							getLatLngObject(markerElement.getAttribute("data-location"), markerElement, plugins.maps[i], function(location, markerElement, mapElement){
+							getLatLngObject(markerElement.getAttribute("data-location"), markerElement, plugins.maps[i], function (location, markerElement, mapElement) {
 								var icon = markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon");
 								var activeIcon = markerElement.getAttribute("data-icon-active") || mapElement.getAttribute("data-icon-active");
 								var info = markerElement.getAttribute("data-description") || "";
@@ -502,15 +503,15 @@
 									position: location,
 									map: mapElement.map
 								}
-								if (icon){
+								if (icon) {
 									markerData.icon = icon;
 								}
 								var marker = new google.maps.Marker(markerData);
 								markerElement.gmarker = marker;
-								markers.push({markerElement: markerElement, infoWindow: infoWindow});
+								markers.push({ markerElement: markerElement, infoWindow: infoWindow });
 								marker.isActive = false;
 								// Handle infoWindow close click
-								google.maps.event.addListener(infoWindow,'closeclick',(function(markerElement, mapElement){
+								google.maps.event.addListener(infoWindow, 'closeclick', (function (markerElement, mapElement) {
 									var markerIcon = null;
 									markerElement.gmarker.isActive = false;
 									markerIcon = markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon");
@@ -519,16 +520,16 @@
 
 
 								// Set marker active on Click and open infoWindow
-								google.maps.event.addListener(marker, 'click', (function(markerElement, mapElement) {
+								google.maps.event.addListener(marker, 'click', (function (markerElement, mapElement) {
 									if (markerElement.infoWindow.getContent().length === 0) return;
 									var gMarker, currentMarker = markerElement.gmarker, currentInfoWindow;
-									for (var k =0; k < markers.length; k++){
+									for (var k = 0; k < markers.length; k++) {
 										var markerIcon;
-										if (markers[k].markerElement === markerElement){
+										if (markers[k].markerElement === markerElement) {
 											currentInfoWindow = markers[k].infoWindow;
 										}
 										gMarker = markers[k].markerElement.gmarker;
-										if (gMarker.isActive && markers[k].markerElement !== markerElement){
+										if (gMarker.isActive && markers[k].markerElement !== markerElement) {
 											gMarker.isActive = false;
 											markerIcon = markers[k].markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon")
 											gMarker.setIcon(markerIcon);
@@ -538,13 +539,13 @@
 
 									currentMarker.isActive = !currentMarker.isActive;
 									if (currentMarker.isActive) {
-										if (markerIcon = markerElement.getAttribute("data-icon-active") || mapElement.getAttribute("data-icon-active")){
+										if (markerIcon = markerElement.getAttribute("data-icon-active") || mapElement.getAttribute("data-icon-active")) {
 											currentMarker.setIcon(markerIcon);
 										}
 
 										currentInfoWindow.open(map, marker);
-									}else{
-										if (markerIcon = markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon")){
+									} else {
+										if (markerIcon = markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon")) {
 											currentMarker.setIcon(markerIcon);
 										}
 										currentInfoWindow.close();
@@ -586,8 +587,8 @@
 		}
 
 		// Google maps
-		if( plugins.maps.length ) {
-			lazyInit( plugins.maps, initMaps );
+		if (plugins.maps.length) {
+			lazyInit(plugins.maps, initMaps);
 		}
 
 		// UI To Top
@@ -606,22 +607,22 @@
 		}
 
 		// RD Navbar
-		if ( plugins.rdNavbar.length ) {
+		if (plugins.rdNavbar.length) {
 			var
 				navbar = plugins.rdNavbar,
 				aliases = { '-': 0, '-sm-': 576, '-md-': 768, '-lg-': 992, '-xl-': 1200, '-xxl-': 1600 },
 				responsive = {};
 
-			for ( var alias in aliases ) {
-				var link = responsive[ aliases[ alias ] ] = {};
-				if ( navbar.attr( 'data'+ alias +'layout' ) )          link.layout        = navbar.attr( 'data'+ alias +'layout' );
-				if ( navbar.attr( 'data'+ alias +'device-layout' ) )   link.deviceLayout  = navbar.attr( 'data'+ alias +'device-layout' );
-				if ( navbar.attr( 'data'+ alias +'hover-on' ) )        link.focusOnHover  = navbar.attr( 'data'+ alias +'hover-on' ) === 'true';
-				if ( navbar.attr( 'data'+ alias +'auto-height' ) )     link.autoHeight    = navbar.attr( 'data'+ alias +'auto-height' ) === 'true';
-				if ( navbar.attr( 'data'+ alias +'stick-up-offset' ) ) link.stickUpOffset = navbar.attr( 'data'+ alias +'stick-up-offset' );
-				if ( navbar.attr( 'data'+ alias +'stick-up' ) )        link.stickUp       = navbar.attr( 'data'+ alias +'stick-up' ) === 'true';
-				if ( isNoviBuilder ) link.stickUp = false;
-				else if ( navbar.attr( 'data'+ alias +'stick-up' ) )   link.stickUp       = navbar.attr( 'data'+ alias +'stick-up' ) === 'true';
+			for (var alias in aliases) {
+				var link = responsive[aliases[alias]] = {};
+				if (navbar.attr('data' + alias + 'layout')) link.layout = navbar.attr('data' + alias + 'layout');
+				if (navbar.attr('data' + alias + 'device-layout')) link.deviceLayout = navbar.attr('data' + alias + 'device-layout');
+				if (navbar.attr('data' + alias + 'hover-on')) link.focusOnHover = navbar.attr('data' + alias + 'hover-on') === 'true';
+				if (navbar.attr('data' + alias + 'auto-height')) link.autoHeight = navbar.attr('data' + alias + 'auto-height') === 'true';
+				if (navbar.attr('data' + alias + 'stick-up-offset')) link.stickUpOffset = navbar.attr('data' + alias + 'stick-up-offset');
+				if (navbar.attr('data' + alias + 'stick-up')) link.stickUp = navbar.attr('data' + alias + 'stick-up') === 'true';
+				if (isNoviBuilder) link.stickUp = false;
+				else if (navbar.attr('data' + alias + 'stick-up')) link.stickUp = navbar.attr('data' + alias + 'stick-up') === 'true';
 			}
 
 			plugins.rdNavbar.RDNavbar({
@@ -698,7 +699,7 @@
 					.end();
 
 				s.swiper({
-					autoplay: !isNoviBuilder && $.isNumeric( s.attr('data-autoplay') ) ? s.attr('data-autoplay') : false,
+					autoplay: !isNoviBuilder && $.isNumeric(s.attr('data-autoplay')) ? s.attr('data-autoplay') : false,
 					direction: s.attr('data-direction') ? s.attr('data-direction') : "horizontal",
 					effect: s.attr('data-slide-effect') ? s.attr('data-slide-effect') : "slide",
 					speed: s.attr('data-slide-speed') ? s.attr('data-slide-speed') : 600,
@@ -732,11 +733,11 @@
 		}
 
 		// Owl carousel
-		if ( plugins.owl.length ) {
-			for ( var i = 0; i < plugins.owl.length; i++ ) {
-				var carousel = $( plugins.owl[ i ] );
-				plugins.owl[ i ].owl = carousel;
-				initOwlCarousel( carousel );
+		if (plugins.owl.length) {
+			for (var i = 0; i < plugins.owl.length; i++) {
+				var carousel = $(plugins.owl[i]);
+				plugins.owl[i].owl = carousel;
+				initOwlCarousel(carousel);
 			}
 		}
 
@@ -804,7 +805,7 @@
 								$.ajax({
 									method: "POST",
 									url: "bat/reCaptcha.php",
-									data: {'g-recaptcha-response': captchaToken},
+									data: { 'g-recaptcha-response': captchaToken },
 									async: false
 								})
 									.done(function (responceCode) {
@@ -904,18 +905,44 @@
 				});
 			}
 		}
+
+		//efecto lightbox visualizador de imagen
+		{
+			const images = document.querySelectorAll('.imge');
+			const containerImge = document.querySelector('.container-img');
+			const imageContainer = document.querySelector('.img-show');
+			const copy = document.querySelector('.copy');
+
+			images.forEach(image => {
+				image.addEventListener('click', () => {
+					addImage(image.getAttribute('src'), image.getAttribute('alt'))
+				})
+			})
+
+			const addImage = (srcImg, altImg) => {
+				containerImge.classList.toggle('move');
+				imageContainer.classList.toggle('show');
+				imageContainer.src = srcImg;
+				copy.innerHTML = altImg;
+			}
+
+			containerImge.addEventListener('click', () => {
+				containerImge.classList.toggle('move');
+				imageContainer.classList.toggle('show');
+			});
+		}
+
 	});
 }());
 
 
-/**nuevos scripts */
 /**funcionalidad botones de mision vision y politicas */
-$(document).ready(function(){
+$(document).ready(function () {
 	$('ul.tabs li a:first').addClass('actual');
 	$('.secciones article').hide();
 	$('.secciones article:first').show();
 
-	$('ul.tabs li a').click(function(){
+	$('ul.tabs li a').click(function () {
 		$('ul.tabs li a').removeClass('actual');
 		$(this).addClass('actual');
 		$('.secciones article').hide();
@@ -940,33 +967,33 @@ let activeIndex = 0; // the current page on the slider
 
 
 let movies = [
-  {
-    src: "images/partners/beaucoup.jpg",
-      href:"#",
-  },
-  {
-    src: "images/partners/dlink.jpg",
-      href:"#",
-  },
+	{
+		src: "images/partners/beaucoup.jpg",
+		href: "#",
+	},
+	{
+		src: "images/partners/dlink.jpg",
+		href: "#",
+	},
 
-  {
-    src: "images/partners/exfo.jpg",
-      href:"#",
-  },
+	{
+		src: "images/partners/exfo.jpg",
+		href: "#",
+	},
 
-  {
-    src: "images/partners/fujikura.jpg",
-      href:"#",
-  },
-  {
-    src:"images/partners/mikrotik.png",
-      href:"#",
-  },
-  {
-    src: "images/partners/siemon.png",
-      href:"#",
-  },
-    
+	{
+		src: "images/partners/fujikura.jpg",
+		href: "#",
+	},
+	{
+		src: "images/partners/mikrotik.png",
+		href: "#",
+	},
+	{
+		src: "images/partners/siemon.png",
+		href: "#",
+	},
+
 ];
 
 
@@ -975,16 +1002,16 @@ let movies = [
 // Fill the slider with all the movies in the "movies" array
 function populateSlider() {
 
-  movies.forEach((image) => {
-        // Clone the initial movie thats included in the html, then replace the image with a different one
-    const newMovie = document.getElementById("movie0");
-    let clone = newMovie.cloneNode(true);
-    let img = clone.querySelector("img");
-    let a = clone.querySelector("a");
-    img.src = image.src;
-    a.href = image.href;   
-    slider.insertBefore(clone, slider.childNodes[slider.childNodes.length - 1]);
-  });
+	movies.forEach((image) => {
+		// Clone the initial movie thats included in the html, then replace the image with a different one
+		const newMovie = document.getElementById("movie0");
+		let clone = newMovie.cloneNode(true);
+		let img = clone.querySelector("img");
+		let a = clone.querySelector("a");
+		img.src = image.src;
+		a.href = image.href;
+		slider.insertBefore(clone, slider.childNodes[slider.childNodes.length - 1]);
+	});
 }
 
 populateSlider();
@@ -996,67 +1023,68 @@ initialMovie.remove();
 
 // Update the indicators that show which page we're currently on
 function updateIndicators(index) {
-  indicators.forEach((indicator) => {
-    indicator.classList.remove("active");
-  });
-  let newActiveIndicator = indicators[index];
-  newActiveIndicator.classList.add("active");
+	indicators.forEach((indicator) => {
+		indicator.classList.remove("active");
+	});
+	let newActiveIndicator = indicators[index];
+	newActiveIndicator.classList.add("active");
 }
 
 // Scroll Left button
 btnLeft.addEventListener("click", (e) => {
-  let movieWidth = document.querySelector(".movie").getBoundingClientRect()
-    .width;
-  let scrollDistance = movieWidth * 6; // Scroll the length of 6 movies. TODO: make work for mobile because (4 movies/page instead of 6)
+	let movieWidth = document.querySelector(".movie").getBoundingClientRect()
+		.width;
+	let scrollDistance = movieWidth * 6; // Scroll the length of 6 movies. TODO: make work for mobile because (4 movies/page instead of 6)
 
-  slider.scrollBy({
-    top: 0,
-    left: -scrollDistance,
-    behavior: "smooth",
-  });
-  activeIndex = (activeIndex - 1) % 3;
-  console.log(activeIndex);
-  updateIndicators(activeIndex);
+	slider.scrollBy({
+		top: 0,
+		left: -scrollDistance,
+		behavior: "smooth",
+	});
+	activeIndex = (activeIndex - 1) % 3;
+	console.log(activeIndex);
+	updateIndicators(activeIndex);
 });
 
-function Derecha(){
-  let movieWidth = document.querySelector(".movie").getBoundingClientRect()
-    .width;
-  let scrollDistance = movieWidth * 1; // Scroll the length of 6 movies. TODO: make work for mobile because (4 movies/page instead of 6)
+function Derecha() {
+	let movieWidth = document.querySelector(".movie").getBoundingClientRect()
+		.width;
+	let scrollDistance = movieWidth * 1; // Scroll the length of 6 movies. TODO: make work for mobile because (4 movies/page instead of 6)
 
-  // if we're on the last page
-  if (activeIndex == 2) {
-    // duplicate all the items in the slider (this is how we make 'looping' slider)
-    populateSlider();
-    slider.scrollBy({
-      top: 0,
-      left: +scrollDistance,
-      behavior: "smooth",
-    });
-    activeIndex = 0;
-    updateIndicators(activeIndex);
-  } else {
-    slider.scrollBy({
-      top: 0,
-      left: +scrollDistance,
-      behavior: "smooth",
-    });
-    activeIndex = (activeIndex + 1) % 3;
-    console.log(activeIndex);
-    updateIndicators(activeIndex);
-  }}
+	// if we're on the last page
+	if (activeIndex == 2) {
+		// duplicate all the items in the slider (this is how we make 'looping' slider)
+		populateSlider();
+		slider.scrollBy({
+			top: 0,
+			left: +scrollDistance,
+			behavior: "smooth",
+		});
+		activeIndex = 0;
+		updateIndicators(activeIndex);
+	} else {
+		slider.scrollBy({
+			top: 0,
+			left: +scrollDistance,
+			behavior: "smooth",
+		});
+		activeIndex = (activeIndex + 1) % 3;
+		console.log(activeIndex);
+		updateIndicators(activeIndex);
+	}
+}
 
 // Scroll Right button
 
 btnRight.addEventListener("click", (e) => {
-  Derecha()
+	Derecha()
 });
 
 
 //funcion para ejecutar auntomaticamente la funcion Derecha cada 4 seg
-setInterval(function(){
-  Derecha();
-},4000);
+setInterval(function () {
+	Derecha();
+}, 4000);
 
 
 

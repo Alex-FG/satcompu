@@ -9181,7 +9181,7 @@ a[href*='tel'], a[href*='mailto'] {
 	height: 30px;
 	font-size: 30px;
 	line-height: 1;
-	color: #d86634;
+	color: #ece850;
 	background: rgba(136, 136, 136, 0.1);
 }
 
@@ -11234,6 +11234,13 @@ html.tablet .ui-to-top {
 	height: 100px;
 }
 
+@media (max-width: 700px) {
+.rd-navbar-brand img {
+	width: 400px;
+	height: 200px;
+}
+}
+
 .rd-navbar-fixed .rd-navbar-brand img {
 	max-width: 200px;
 	max-height: 56px;
@@ -13007,7 +13014,7 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
 
 
 
-/*estidos medidor*/
+/*estidos medidor de velocodad*/
 
 .cont-medidor{
 	display: flex;
@@ -13032,6 +13039,7 @@ justify-content: center;
     height: 50%;
     object-fit: cover;
     transition: transform .5s;
+	cursor: pointer;
 }
 
 .imge:hover{
