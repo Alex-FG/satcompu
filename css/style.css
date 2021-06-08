@@ -9182,7 +9182,7 @@ a[href*='tel'], a[href*='mailto'] {
 	font-size: 30px;
 	line-height: 1;
 	color: #ece850;
-	background: rgba(136, 136, 136, 0.1);
+
 }
 
 .info-classic-link {
@@ -10653,6 +10653,7 @@ html.tablet .ui-to-top {
 .rd-navbar.rd-navbar-fixed + .rd-navbar.rd-navbar--is-clone,
 .rd-navbar.rd-navbar-sidebar + .rd-navbar.rd-navbar--is-clone {
 	display: none;
+	
 }
 
 .rd-navbar {
@@ -11234,19 +11235,15 @@ html.tablet .ui-to-top {
 	height: 100px;
 }
 
-@media (max-width: 700px) {
-.rd-navbar-brand img {
-	width: 400px;
-	height: 200px;
-}
+/*imagen tamaño movil*/
+.rd-navbar-fixed .rd-navbar-brand img {
+	max-width: 280px;
+	max-height: 76px;
+	width: auto;
+	height:100%;
 }
 
-.rd-navbar-fixed .rd-navbar-brand img {
-	max-width: 200px;
-	max-height: 56px;
-	width: auto;
-	height: auto;
-}
+/*barra menu movil tamaño*/
 
 .rd-navbar-fixed .rd-navbar-panel {
 	position: fixed;
@@ -11256,8 +11253,9 @@ html.tablet .ui-to-top {
 	z-index: 1080;
 	display: flex;
 	align-items: center;
-	height: 56px;
+	height: 76px;
 	padding: 4px;
+
 }
 
 .rd-navbar-fixed .rd-navbar-nav-wrap {
@@ -11596,6 +11594,7 @@ html.tablet .ui-to-top {
 	display: none;
 }
 
+/*barra menu movil*/
 .rd-navbar-fixed .rd-navbar-panel {
 	color: #888888;
 	box-shadow: 0 0 22px -4px rgba(0, 0, 0, 0.17);
@@ -11609,7 +11608,7 @@ html.tablet .ui-to-top {
 	box-shadow: 0 0 22px -4px rgba(0, 0, 0, 0.17);
 }
 
-/*color menu tamaño movil*/
+/*color menu movil tamaño movil*/
 .rd-navbar-fixed .rd-nav-item:hover .rd-nav-link, .rd-navbar-fixed .rd-nav-item.focus .rd-nav-link, .rd-navbar-fixed .rd-nav-item.active .rd-nav-link, .rd-navbar-fixed .rd-nav-item.opened .rd-nav-link {
 	color: #ffffff;
 	background: #750e12;
@@ -11714,13 +11713,13 @@ html.rd-navbar-fixed-linked .page {
 .rd-navbar-sidebar .rd-navbar-main-element {
 	display: flex;
 	align-items: center;
-}
+}sidebar
 
 .rd-navbar-sidebar .rd-navbar-main-element > * + * {
 	margin-left: 20px;
 }
 
-.rd-navbar-sidebar .rd-navbar-toggle {
+.rd-navbar- .rd-navbar-toggle {
 	position: absolute;
 	right: 0;
 	top: 50%;
@@ -12119,6 +12118,7 @@ html.rd-navbar-fixed-linked .page {
 	display: flex;
 	align-items: center;
 }
+
 
 .rd-navbar-classic.rd-navbar-static .rd-navbar-brand img {
 	max-width: 270px;
