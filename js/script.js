@@ -68,8 +68,8 @@
 		if (plugins.preloader.length && !isNoviBuilder) {
 			pageTransition({
 				target: document.querySelector('.page'),
-				delay: 10,
-				duration: 500,
+				delay: 0.5,
+				duration: 10,
 				classIn: 'fadeIn',
 				classOut: 'fadeOut',
 				classActive: 'animated',
@@ -79,7 +79,7 @@
 				onTransitionStart: function (options) {
 					setTimeout(function () {
 						plugins.preloader.removeClass('loaded');
-					}, options.duration * .75);
+					}, options.duration * .5);
 				},
 				onReady: function () {
 					plugins.preloader.addClass('loaded');
